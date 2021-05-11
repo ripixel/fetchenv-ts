@@ -1,0 +1,26 @@
+{
+  "name": "fetchenv",
+  "version": "1.0.0",
+  "description": "TypeScript-friendly environment variable getter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ripixel/fetchEnv.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "ripixel@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ripixel/fetchEnv/issues"
+  },
+  "homepage": "https://github.com/ripixel/fetchEnv#readme",
+  "devDependencies": {
+    "@types/node": "^15.0.2",
+    "typescript": "^4.2.4"
+  }
+}
