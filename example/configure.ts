@@ -10,6 +10,7 @@ interface EnvShape {
   SOME_FLOAT_ARRAY: number[];
   SOME_FLOAT: number;
   DEFINITE_BOOLEAN: boolean;
+  MULTIPLY_BY_TWO: number;
 }
 
 export const fetchEnv = configureEnv<EnvShape>({
@@ -22,4 +23,9 @@ export const fetchEnv = configureEnv<EnvShape>({
   SOME_FLOAT_ARRAY: { type: TYPES.ARRAY_FLOAT, isRequired: true },
   SOME_FLOAT: { type: TYPES.FLOAT, isRequired: true },
   DEFINITE_BOOLEAN: { type: TYPES.BOOLEAN, isRequired: true },
+  MULTIPLY_BY_TWO: {
+    type: TYPES.CUSTOM,
+    isRequired: true,
+    customConverter: (x) => parseInt(x, 10) * 2,
+  },
 });

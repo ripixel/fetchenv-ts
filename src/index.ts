@@ -6,11 +6,13 @@ export enum TYPES {
   ARRAY_NUMBER = "number_array",
   ARRAY_FLOAT = "float_array",
   BOOLEAN = "boolean",
+  CUSTOM = "custom",
 }
 
 type EnvConfigVar = {
   type: TYPES;
   isRequired?: boolean;
+  customConverter?: (val: string) => unknown;
 };
 
 export type EnvConfig<T> = {
@@ -19,7 +21,8 @@ export type EnvConfig<T> = {
 
 const returnCorrectType = <K, T extends keyof K>(
   val: string,
-  configVar: EnvConfigVar
+  configVar: EnvConfigVar,
+  key: T
 ) => {
   let returnVal: any = val;
   switch (configVar.type) {
@@ -42,6 +45,14 @@ const returnCorrectType = <K, T extends keyof K>(
       returnVal =
         val === "true" || val === "True" || val === "TRUE" ? true : false;
       break;
+    case TYPES.CUSTOM:
+      if (!configVar.customConverter) {
+        throw new Error(
+          `The env var with the name ${key} is marked as CUSTOM, but has not provided a customConverter function`
+        );
+      }
+      returnVal = configVar.customConverter(val);
+      break;
     default:
       // TYPES.STRING
       returnVal = val;
@@ -62,6 +73,6 @@ export const configureEnv = <K>(config: EnvConfig<K>) => {
         return undefined as unknown as K[T];
       }
     }
-    return returnCorrectType<K, T>(val!, configVar);
+    return returnCorrectType<K, T>(val!, configVar, key);
   };
 };
