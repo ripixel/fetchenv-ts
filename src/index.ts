@@ -11,7 +11,7 @@ export enum TYPES {
 
 type EnvConfigVar = {
   type: TYPES;
-  isRequired?: boolean;
+  isOptional?: boolean;
   customConverter?: (val: string) => unknown;
 };
 
@@ -64,7 +64,7 @@ export const configureEnv = <K>(config: EnvConfig<K>) => {
   return <T extends keyof K>(key: T): K[T] => {
     const val = process.env[key as string];
     const configVar = config[key as keyof EnvConfig<K>];
-    if (configVar.isRequired) {
+    if (!configVar.isOptional) {
       if (!val) {
         throw new Error(`The env var with name ${key} is undefined.`);
       }
