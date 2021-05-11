@@ -1,4 +1,4 @@
-import { configureEnv, TYPES } from "..";
+import { configureEnv, TYPES } from "../src/index";
 
 interface EnvShape {
   SOME_STRING: string;

@@ -4,7 +4,8 @@
   "description": "TypeScript-friendly environment variable getter",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\""
   },
   "repository": {
     "type": "git",
