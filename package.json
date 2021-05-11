@@ -1,6 +1,6 @@
 {
   "name": "fetchenv-ts",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "TypeScript-friendly environment variable getter",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
