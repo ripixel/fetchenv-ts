@@ -1,0 +1,8 @@
+.github/
+example/
+src/
+.gitignore
+*.tgz
+package-lock.json
+tsconfig.json
+node_modules/

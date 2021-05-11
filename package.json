@@ -4,6 +4,7 @@
   "description": "TypeScript-friendly environment variable getter",
   "main": "index.js",
   "scripts": {
+    "prepack": "npm run build",
     "build": "tsc",
     "test": "echo \"Error: no test specified\""
   },
