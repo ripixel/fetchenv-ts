@@ -66,7 +66,7 @@ export const configureEnv = <K>(config: EnvConfig<K>) => {
     const configVar = config[key as keyof EnvConfig<K>];
     if (!configVar.isOptional) {
       if (!val) {
-        throw new Error(`The env var with name ${key} is undefined.`);
+        throw new Error(`The env var with name ${key} is undefined`);
       }
     } else {
       if (!val) {
