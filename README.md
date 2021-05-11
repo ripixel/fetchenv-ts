@@ -66,7 +66,7 @@ You can see the code example below for usage in-situ.
 First, configure your environment:
 
 ```typescript
-import configureEnv from "fetchenv-ts";
+import { configureEnv, TYPES } from "fetchenv-ts";
 
 interface EnvShape {
   SOME_STRING: string;
