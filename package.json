@@ -2,7 +2,8 @@
   "name": "fetchenv-ts",
   "version": "1.1.1",
   "description": "TypeScript-friendly environment variable getter",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "prepack": "npm run build",
     "build": "tsc",
